@@ -1,0 +1,530 @@
+# 此配置文件中的所有路径都是相对于 Dynmap 的data-folder: minecraft_server/插件/动态图/
+
+# 所有地图模板都在模板目录中定义
+# 要将 HDMap 极低分辨率 (2 ppb) 地图模板用作世界默认值，请将值设置为 vlowres
+#   这些模板的定义在normal-vlowres.txt、nether-vlowres.txt和the_end-vlowres.txt
+# 要将 HDMap 低分辨率 (4 ppb) 地图模板用作世界默认值，请将值设置为 lowres
+#   这些模板的定义在normal-lowres.txt、nether-lowres.txt和the_end-lowres.txt
+# 要使用 HDMap 高分辨率 (16 ppb) 地图模板（初始完整渲染可能需要很长时间），将值设置为 hires
+#   这些模板的定义在 normal-hires.txt、nether-hires.txt 和 the_end-hires.txt 中
+# 要使用 HDMap 低分辨率 (4 ppb) 地图模板，支持有选择地将分辨率提高到高分辨率 (16 ppb)，请将值设置为 low_boost_hi
+#   这些模板的定义在normal-low_boost_hi.txt、nether-low_boost_hi.txt和the_end-low_boost_hi.txt
+# 要使用 HDMap 高分辨率 (16 ppb) 地图模板，支持有选择地将分辨率提高到 vhi-res (32 ppb)，请将值设置为 hi_boost_vhi
+#   这些模板的定义在normal-hi_boost_vhi.txt、nether-hi_boost_vhi.txt、the_end-hi_boost_vhi.txt
+# 要使用 HDMap 高分辨率 (16 ppb) 地图模板，支持有选择地将分辨率提高到 xhi-res (64 ppb)，请将值设置为 hi_boost_xhi
+#   这些模板的定义在normal-hi_boost_xhi.txt、nether-hi_boost_xhi.txt、the_end-hi_boost_xhi.txt
+deftemplatesuffix: hires
+
+# 设置默认图块比例（0 = 128px x 128x，1 = 256px x 256px，2 = 512px x 512px，3 = 1024px x 1024px，4 = 2048px x 2048px）- 0 是默认值
+# Note: changing该值将导致所有使用默认值的地图都需要被完全渲染
+#defaulttilescale: 0
+
+# 地图存储scheme: only取消注释一个“类型”值
+#  filetree: classic和默认scheme: tree文件，所有地图数据都在“tilespath”设置指示的目录下
+#  sqlite: singleSQLite 数据库文件（这可以变得非常大），位于“dbfile”设置（默认为数据目录中的文件 dynmap.db）
+#  mysql: MySQL数据库，位于数据库中的主机名：端口，通过用户名和密码访问
+#  mariadb: MariaDB数据库，位于数据库中的主机名：端口，通过用户名和密码访问
+#  postgres: PostgreSQL数据库，位于数据库中的主机名：端口，通过用户名和密码访问
+storage:
+  # 文件树存储（地图图像文件的标准树）
+  type: filetree
+  # 用于地图存储的 SQLite 数据库（使用 dbfile 作为存储位置）
+  #type: sqlite
+  #dbfile: dynmap。D b
+  # 用于地图存储的 MySQL 数据库（在“主机名”：“端口”处，在数据库“数据库”中使用用户“用户 ID”密码“密码”和表前缀“前缀”中的标志“标志”）
+  #type: mysql
+  #hostname: localhost
+  #port: 3306
+  #database: dynmap
+  #userid: dynmap
+  #password: dynmap
+  #字首： ””
+  #flags: "?allowReconnect=true&autoReconnect=true"
+  #
+  # AWS S3 备份网站
+  #type: aws_s3
+  #bucketname: "dynmap-bucket-name"
+  #region: us-east-1
+  #aws_access_key_id: "<aws-access-key-id>"
+  #aws_secret_access_key: "<aws-secret-access-key>"  
+
+components:
+  - class: org.dynmap.ClientConfigurationComponent
+
+  # 请记住在使用外部 Web 服务器时将以下类更改为 org.dynmap.JsonFileClientUpdateComponent。
+  - class: org.dynmap.InternalClientUpdateComponent
+    sendhealth: true
+    sendposition: true
+    allowwebchat: true
+    webchat-interval: 5
+    hidewebchatip: false
+    trustclientname: false
+    includehiddenplayers: false
+    # （可选）如果为真，则使用玩家显示名称中的颜色代码
+    use-name-colors: false
+    # （可选）如果为 true，当 IP 匹配时，玩家登录 ID 将用于网络聊天
+    use-player-login-ip: true
+    # （可选）如果 use-player-login-ip 为 true，将此设置为 true 将导致忽略与已知玩家 IP 不匹配的聊天消息
+    require-player-login-ip: false
+    # （可选）阻止被禁止聊天的玩家登录 ID
+    block-banned-player-chat: true
+    # 需要登录才能进行 Web 到服务器聊天（需要login-enabled: true)
+    webchat-requires-login: false
+    # 如果设置为 true，用户必须拥有 dynmap.webchat 权限才能聊天
+    webchat-permissions: false
+    # 限制单条聊天消息的长度
+    chatlengthlimit: 256
+  #  # 可选 - 让玩家在内部/地下/阴影中隐藏（#=lightlevel: 0=全阴影，15=天空）
+  #  hideifshadow: 4
+  #  # 可选 - 让玩家在掩护下隐藏（#=天光水平，0=地下，15=向天空开放）
+  #  hideifundercover: 14
+  #  #（可选）如果为真，蹲伏/潜行的玩家将被隐藏
+    hideifsneaking: false
+    # 如果为真，则玩家位置/状态受到保护（使用具有 dynmap.playermarkers.seeall 权限的 ID 登录，除自身以外的信息需要其他权限）
+    protected-player-info: false
+    # 如果为真，则隐藏具有隐形药水效果的玩家
+    hide-if-invisiblity-potion: true
+    # 如果为 true，则玩家名称不会显示在地图、聊天、列表中
+    hidenames: false
+  #- class: org.dynmap.JsonFileClientUpdateComponent
+  #  writeinterval: 1
+  #  sendhealth: true
+  #  sendposition: true
+  #  allowwebchat: true
+  #  webchat-interval: 5
+  #  hidewebchatip: false
+  #  includehiddenplayers: false
+  #  use-name-colors: false
+  #  use-player-login-ip: false
+  #  require-player-login-ip: false
+  #  block-banned-player-chat: true
+  #  hideifshadow: 0
+  #  hideifundercover: 0
+  #  hideifsneaking: false
+  #  # 需要登录才能进行网络到服务器的聊天（需要login-enabled: true)
+  #  webchat-requires-login: false
+  #  # 如果设置为 true，用户必须拥有 dynmap.webchat 权限才能聊天
+  #  webchat-permissions: false
+  #  # 限制单条聊天消息的长度
+  #  chatlengthlimit: 256
+  #  hide-if-invisiblity-potion: true
+  #  hidenames: false
+
+  - class: org.dynmap.SimpleWebChatComponent
+    allowchat: true
+    # 如果为真，Web UI 用户可以使用“玩家名”URL 参数提供聊天名称。'trustclientname' 也必须设置为真。
+    allowurlname: false
+
+  # Note: thisdmarker 命令需要组件，并且 Marker API 可用于其他插件
+  - class: org.dynmap.MarkersComponent
+    type: markers
+    showlabel: false
+    enablesigns: false
+    # 标志标记的默认标记集
+    default-sign-set: markers
+    # （可选）将生成点标记添加到标准标记层
+    showspawn: true
+    spawnicon: world
+    spawnlabel: "Spawn"
+    # （可选）显示离线玩家位置的图层（注销后的“maxofflinetime”分钟数）
+    showofflineplayers: false
+    offlinelabel: "Offline"
+    offlineicon: offlineuser
+    offlinehidebydefault: true
+    offlineminzoom: 0
+    maxofflinetime: 30
+    # （可选）用于显示玩家产卵床的图层
+    showspawnbeds: false
+    spawnbedlabel: "Spawn Beds"
+    spawnbedicon: bed
+    spawnbedhidebydefault: true
+    spawnbedminzoom: 0
+    spawnbedformat: "%name%'s bed"
+    # （可选）显示世界边界（香草 1.8+）
+    showworldborder: true
+    worldborderlabel: "Border"
+
+  - class: org.dynmap.ClientComponent
+    type: chat
+    allowurlname: false
+  - class: org.dynmap.ClientComponent
+    type: chatballoon
+    focuschatballoons: false
+  - class: org.dynmap.ClientComponent
+    type: chatbox
+    showplayerfaces: true
+    messagettl: 5
+    # Optional: set可滚动消息中的行数history: if设置，messagettl 不用于老化消息
+    #scrollback: 100
+    # Optional: set聊天框可见的最大行数
+    #visiblelines: 10
+    # Optional: send按钮
+    sendbutton: false
+  - class: org.dynmap.ClientComponent
+    type: playermarkers
+    showplayerfaces: true
+    showplayerhealth: true
+    # 如果为真，也显示玩家身体（仅当 showplayerfaces=true 时有效）
+    showplayerbody: false
+    # 使玩家脸变小的选项 - 不要与 showplayerhealth 或 largeplayerfaces 一起使用
+    smallplayerfaces: false
+    # 使玩家脸变大的选项 - 不要与 showplayerhealth 或 smallplayerfaces 一起使用
+    largeplayerfaces: false
+    # 可选 - 默认情况下隐藏玩家面部图层
+    hidebydefault: false
+    # 可选 - 在图层菜单中排序优先级（低在高之前 - 默认为 0）
+    layerprio: 0
+    # 可选 - 玩家标记层的标签（默认为“玩家”）
+    label: "Players"
+
+  #- class: org.dynmap.ClientComponent
+  #  type: digitalclock
+  - class: org.dynmap.ClientComponent
+    type: link
+
+  - class: org.dynmap.ClientComponent
+    type: timeofdayclock
+    showdigitalclock: true
+    showweather: true
+  # 鼠标指针世界坐标显示
+  - class: org.dynmap.ClientComponent
+    type: coord
+    label: "Location"
+    hidey: false
+    show-mcr: false
+    show-chunk: false
+
+  # Note: more可以定义一个以上的徽标组件
+  #-class: org.dynmap.ClientComponent
+  #  type: logo
+  #  text: "Dynmap"
+  #  #logourl: "images/block_surface.png"
+  #  linkurl: "http://forums.bukkit.org/threads/dynmap.489/"
+  #  ＃ 有效的positions: top-left, 右上, 左下, 右下
+  #  position: bottom-right
+
+  #-class: org.dynmap.ClientComponent
+  #  type: inactive
+  #  timeout: 1800# 以秒为单位（1800 秒 = 30 分钟）
+  #  redirecturl: inactive.html
+  #  #showmessage：“你太久没有活动了。”
+
+  #-class: org.dynmap.TestComponent
+  #  stuff: "This is some configuration-value"
+
+# 把 hiddenplayers.txt 当作白名单让玩家显示在地图上？（默认为假）
+display-whitelist: false
+
+# 渲染图块的频率（以秒为单位）。
+renderinterval: 1
+
+# 加速渲染间隔之前更新队列中有多少瓦片
+renderacceleratethreshold: 60
+
+# 当积压高于 renderacceleratethreshold 时渲染图块的频率
+renderaccelerateinterval: 0.2
+
+# 一次要处理多少个更新图块（如果未定义，默认为核心数的 1/2）
+tiles-rendered-at-once: 2
+
+# 如果为真，则使用普通优先级线程进行渲染（相对于低优先级）——这可以保持渲染
+# 从繁忙的 Windows 机器上挨饿（Linux JVM 几乎忽略线程优先级），但可能会导致
+# 与其他进程更多地争夺 CPU 资源
+usenormalthreadpriority: true
+
+# 保存和恢复挂起的图块渲染 - 防止它们在服务器关闭或/重新加载时丢失
+saverestorepending: true
+
+# Save period for pending jobs (in seconds): 定期保存作业的崩溃恢复
+save-pending-period: 900
+
+# 缩小图块更新周期 - 扫描图块更新并将其处理为缩小图块的频率（以秒为单位）
+zoomoutperiod: 30
+
+# 控制是否在启动时验证缩小图块（如果缩小处理被中断可能需要，但在大地图上可能会很昂贵）
+initial-zoomout-validate: true
+
+# 处理更新图块的默认延迟，以秒为单位。这可以减少潜在的昂贵的重新渲染
+# 频繁更新的瓷砖（例如由于机器、活塞、采石场或其他自动化）。价值观可以
+# 也可以设置在各个世界和各个地图上。
+tileupdatedelay: 30
+
+# Tile 哈希用于在没有发生更改时最小化 tile 文件更新 - 设置为 false 以禁用
+enabletilehash: true
+
+# 可选 - 隐藏ores: render和普通石头一样（这样它们就不会被地图显示）
+#hideores: true
+
+# 可选 - 启用 BetterGrass 风格的草地和雪块侧面渲染
+#better-grass: true
+
+# 可选 - 默认情况下在所有支持它的地图上启用平滑照明（可以将每个地图设置为照明选项）
+smooth-lighting: true
+
+# 可选 - 使用世界提供者光照表（适用于具有自定义光照曲线的自定义世界，例如下界）
+#   false=经典 Dynmap 光照曲线
+use-brightness-table: true
+
+# 可选 - 使用另一个块的纹理和模型渲染特定的块名称name: can用于隐藏/伪装特定
+#  块（例如使矿石看起来像石头，隐藏箱子）或为渲染不受支持的自定义块提供简单支持
+block-alias:
+#    “我的世界：quartz_ore”：“石头”
+#    "diamond_ore": "煤矿"
+
+# 高精地图的默认图像格式（png、jpg、jpg-q75、jpg-q80、jpg-q85、jpg-q90、jpg-q95、jpg-q100、webp、webp-q75、webp-q80、webp-q85、webp- q90, webp-q95, webp-q100, webp-l),
+# Note: anywebp 格式需要存在“webp 命令行工具”（cwebp、dwebp）（https://developers.google.com/speed/webp/download)
+#
+# 对具有明确格式设置的地图没有影响
+image-format: jpg-q90
+
+# 如果 cwebp 或 dwebp 不在 PATH 上，请使用这些设置来提供它们的完整路径。如果工具在 PATH 上，请不要使用这些设置
+# 对于 Windows，包括 .exe
+#
+#cwebp路径：/usr/bin/cwebp
+#dwebp路径：/usr/bin/dwebp
+
+#  use-generated-textures: if是的，使用生成的纹理（与客户端相同）；false 是静态水/熔岩纹理
+#  correct-water-lighting: if是的，使用校正后的水光照明（与客户相同）；false 是遗留水（较暗）
+#  transparent-leaves: iftrue，树叶是透明的（光照方面）：false 对于一些打破树叶方块光照的 Spout 版本是必需的
+use-generated-textures: true
+correct-water-lighting: true
+transparent-leaves: true
+
+# ctm-support: iftrue，材质包中的 Connected Texture Mod (CTM) 已启用（默认）
+ctm-support: true
+# custom-colors-support: iftrue，启用纹理包中的自定义颜色（默认）
+custom-colors-support: true
+
+# 控制玩家面部的加载（如果设置为 false，则永远不会获取皮肤）
+#fetchskins: false
+
+# 控制播放器面孔的更新，一旦加载（如果面孔由其他应用程序管理或手动管理）
+#refreshskins: false
+
+# 自定义用于获取玩家皮肤的 URL (%player%是名字的宏，%uuid%对于 UUID）
+skin-url: "http://skins.minecraft.net/MinecraftSkins/%player%.png"
+
+# 通过 SkinsRestorer 插件而不是内部遗留实现启用皮肤（默认情况下禁用）
+#skinsrestorer-integration: true
+
+render-triggers:
+  #- 玩家移动
+  #- 玩家加入
+  - blockplaced
+  - blockbreak
+  - leavesdecay
+  - blockburn
+  - chunkgenerated
+  - blockformed
+  - blockfaded
+  - blockspread
+  - pistonmoved
+  - explosion
+  #- 阻止从到
+  #- 块物理
+  - structuregrow
+  - blockgrow
+  #- 块红石
+
+# 网页标题 - 如果未指定，则默认为服务器名称（除非它是“未知服务器”的默认值）
+#webpage-title: "My Awesome Server Map"
+
+# 放置图块文件的路径。
+tilespath: web/tiles
+
+# Web 文件所在的路径。
+webpath: web
+
+# 如果设置为 false，则禁用 webpath 内容的提取（如果使用自定义 web UI 或第 3 方 web UI 则很好）
+# Note: web此配置不支持接口 - 你靠自己
+update-webpath-files: true
+
+# /dynmapexp 命令导出 OBJ ZIP 文件的路径
+exportpath: export
+
+# Web 服务器将绑定到的网络接口（所有接口为 0.0.0.0，仅本地访问为 127.0.0.1）。
+# 如果未设置，则在 server.properties 中使用与服务器相同的设置（如果未指定，则为 0.0.0.0）
+#webserver-bindaddress: 0.0.0.0
+
+# Web 服务器将侦听的 TCP 端口。
+webserver-port: 8123
+
+# 内部 Web 服务器上的最大并发会话 - 限制 Bukkit 服务器中使用的资源
+max-sessions: 30
+
+# 禁用 Dynmap 的网络服务器部分（仅限高级用户）
+disable-webserver: false
+
+# 启用/禁用让 Web 服务器允许符号链接（true=与现有代码兼容，false=更安全（默认））
+allow-symlinks: true
+
+# 启用登录支持
+login-enabled: false
+# 需要登录才能访问网站（需要login-enabled: true)
+login-required: false
+
+# fullrender 的 tile 渲染之间的周期，以秒为单位（非零以调整 fullrenders，减轻 CPU 负载）
+timesliceinterval: 0.0
+
+# 每个服务器滴答的最大块负载（1/20 秒）- 将此值降低到 90 以下会影响渲染性能，但也会减少服务器线程负载
+maxchunkspertick: 200
+
+# fullrender/radiusrender 的进度报告间隔，以图块为单位。必须为 100 或更大
+progressloginterval: 100
+
+# 平行线fullrender: if已定义，用于 fullrender 或 radiusrender 的并发线程数
+#   Note: setting这将导致更密集的 CPU 使用，一些额外的内存使用。应谨慎使用时
+#  将其设置为等于或超过系统上的物理核心数。
+#parallelrendercnt: 4
+
+# 浏览器轮询更新的时间间隔。
+updaterate: 2000
+
+# 如果非零，服务器将在“fullrenderplayerlimit”或更多用户登录时暂停 fullrender/radiusrender 处理
+fullrenderplayerlimit: 0
+# 如果非零，服务器将在“updateplayerlimit”或更多用户登录时暂停更新渲染处理
+updateplayerlimit: 0
+# 服务器线程使用的目标限制 - 每滴答毫秒
+per-tick-time-limit: 50
+# 如果服务器的 TPS 低于此设置，更新渲染处理将暂停
+update-min-tps: 18.0
+# 如果服务器的 TPS 低于此设置，则暂停全/半径渲染处理
+fullrender-min-tps: 18.0
+# 如果服务器的 TPS 低于此设置，缩小处理将暂停
+zoomout-min-tps: 18.0
+
+showplayerfacesinmenu: true
+
+# 控制当前地图上隐藏或不隐藏的玩家是否显示为灰色（true=yes）
+grayplayerswhenhidden: true
+
+# 使用播放器权限来订购播放器list: first最后，玩家按他们拥有的第一个许可排序
+# 也就是说，具有第一个列出的权限的任何人都在具有第二个列出的权限的任何人之前，等等，没有任何节点的用户排在最后
+player-sort-permission-nodes:
+  - bukkit.command.op
+
+# 设置 sidebaropened：'true' 固定菜单侧边栏永久打开，'pinned' 将侧边栏默认固定，但允许它取消固定
+#sidebaropened: true
+
+# 自定义 HTTP 响应标头 - 添加 'id: value' 与所有 HTTP 响应标头配对（仅限内部 Web 服务器）
+#http 响应标头：
+#    Access-Control-Allow-Origin: "my-domain.com"
+#    X-Custom-Header-Of-Mine: "MyHeaderValue"
+
+# Web 服务器的可信代理 - 哪些代理地址可信任以提供有效的 X-Forwarded-For 字段
+#   这现在支持 IP 地址和子网范围（例如 192.168.1.0/24 或 202.24.0.0/14 ）
+trusted-proxies:
+  - "127.0.0.1"
+  - "0:0:0:0:0:0:0:1"
+
+# Web 的加入/退出消息格式chat: set到“”以禁用网络用户界面上的通知
+joinmessage: "%playername% joined"
+quitmessage: "%playername% quit"
+
+spammessage: "You may only chat once every %interval% seconds."
+# 来自网络的消息格式：%playername%替代发件人 ID（通常是 IP），%message%包括文字
+webmsgformat: "&color;2[WEB] %playername%: &color;f%message%"
+
+# 控制是否在 UI 上呈现图层控件（默认为 true）
+showlayercontrol: true
+
+# 通过 banned-ips.txt 启用检查被禁止的 IP（仅限内部 Web 服务器）
+check-banned-ips: true
+
+# 加载地图页面时的默认选择
+defaultzoom: 0
+defaultworld: world
+defaultmap: flat
+# （可选）缩放级别和跟随玩家时切换到的地图（如果可能）
+#followzoom: 3
+#followmap: surface
+
+# 如果为真，则永久记录玩家登录使用的 IP 地址，以支持 Web IP 与玩家匹配
+persist-ids-by-ip: true
+
+# 如果为真，将文本映射到西里尔字母
+cyrillic-support: false
+
+# 如果为真，坐标将被四舍五入
+round-coordinates: true
+
+# 要自定义的消息
+msg:
+    maptypes: "Map Types"
+    players: "Players"
+    chatrequireslogin: "Chat Requires Login"
+    chatnotallowed: "You are not permitted to send chat messages"
+    hiddennamejoin: "Player joined"
+    hiddennamequit: "Player quit"
+
+# 客户端配置的URL（只需要针对代理或其他非标准配置进行定制）
+url:
+    # 配置网址
+    #configuration: "up/configuration"
+    # 更新网址
+    #update: "up/world/{world}/{timestamp}"
+    # 发送消息网址
+    #sendmessage: "up/sendmessage"
+    # 登录网址
+    #login: "up/login"
+    # 注册网址
+    #register: "up/register"
+    # 磁贴基本 URL
+    #tiles: "tiles/"
+    # 标记基础 URL
+    #markers: "tiles/"
+
+# 自定义命令 - 允许脚本在某些事件之前/之后运行
+custom-commands:
+    image-updates:
+        # 命令在写入任何图像文件之前运行，或者updated: run带有带有完全限定文件名的单个参数
+        preupdatecommand: ""
+        # 命令在写入任何图像文件后立即运行，或者updated: run带有带有完全限定文件名的单个参数
+        postupdatecommand: ""
+
+# 快照缓存大小，以块为单位
+snapshotcachesize: 500
+# 快照缓存使用软引用 (true)，否则使用弱引用 (false)
+soft-ref-cache: true
+
+# 玩家进入/退出地图标记的标题消息
+#
+# 处理周期 - 检查玩家位置与标记的频率 - 默认为 1000 毫秒（1 秒）
+#enterexitperiod: 1000
+# 标题消息淡入时间，以滴答为单位（0.05 秒间隔）- 默认值为 10（1/2 秒）
+#titleFadeIn: 10
+# 标题消息停留时间，以滴答为单位（0.05 秒间隔）- 默认值为 70（3.5 秒）
+#titleStay: 70
+# 标题消息淡出时间，以滴答为单位（0.05 秒间隔）- 默认为 20（1 秒）
+#titleFadeOut: 20
+# 输入/退出消息在屏幕标题上使用（true - 默认），如果发送的是错误的聊天消息
+#enterexitUseTitle: true
+# 如果新的输入消息应该取代未决的退出消息（相对于按顺序排队），则设置为 true，默认为 false
+#enterReplacesExits: true
+
+# 为 Dynmap 服务器发布公共 URL（允许用户使用“dynmap url”命令获取可用于访问服务器的公共 URL
+# 如果未设置，'dynmap url' 将不会返回任何内容。URL 应该是完全限定的（例如https://mc.westeroscraft.com/)
+#公共网址：http://my.greatserver.com/dynmap
+
+# 如果玩家没有使用该命令的权限，请发送此消息
+noPermissionMsg: "You don't have permission to use this command!"
+
+# 设置为 true 以启用详细的启动消息 - 可以帮助调试地图配置问题
+# 设置为 false 以获得更安静的启动日志
+verbose: false
+
+# 启用调试。
+#调试器：
+#  - class: org.dynmap.debug.LogDebugger
+# Debug: dump块丢失渲染数据
+dump-missing-blocks: false
+
+# 让 dynmap 将旧块迁移到当前 MC 版本的新格式（特别是将 1.13 之前的块迁移到 1.13 或 1.14）。这是需要的
+# 为了在升级的服务器上渲染块（由于 CB/spigot 1.13+ 中的各种错误/限制）。不建议全时启用此设置，
+# 但只需要足够长的时间来完成迁移世界的完整渲染——一旦世界迁移，它就应该关闭）。这是实验性的，所以一定要备份
+# 在启用此设置（设置为 true）的情况下运行之前的世界
+#
+#migrate-chunks: true
+
+# 日志4Jdefense: string取代了在网络聊天中使用宏的尝试
+hackAttemptBlurb: "(IaM5uchA1337Haxr-Ban Me!)"
