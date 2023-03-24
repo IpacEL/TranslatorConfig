@@ -1,0 +1,32 @@
+settings:
+  use-map-color-cache:  # 使用地图颜色缓存
+  allow-end:  # 是否启用传送门
+  warn-on-overload:  # 服务器是否显示"[警告]无法跟上! 系统时间是否更改, 或者服务器是否过载"的信息
+  permissions-file:  # 权限文件
+  update-folder:  # 插件更新目录
+  plugin-profiling:  # /timings 是否发送插件的数据[关闭后报告没有插件部分]
+  connection-throttle:  # 连接受限, 100 = 1秒允许进入10位玩家
+  query-plugins:  # 服务器在远程查询时是否返回插件列表
+  deprecated-verbose:  # 当插件注册不推荐使用的事件时, 服务器是否显示警告
+  shutdown-message:   
+  minimum-api: 
+spawn-limits: # 生物生成上限, 在paper中设定以每位玩家
+  monsters:  # 怪物
+  axolotls:  # 青蛙
+  animals:  # 动物 10
+  water-animals:  # 水生物
+  water-ambient:  # 水环境
+  water-underground-creature:  # 水下生物?
+  ambient:  # 环境
+chunk-gc:
+  period-in-ticks:  # 区块卸载间隔 =15s
+ticks-per: # 生物生成刻
+  monster-spawns:  # 怪物 1
+  axolotl-spawns:  # 青蛙 1
+  animal-spawns:  # 动物 400
+  water-spawns:  # 水生物 1
+  water-ambient-spawns:  # 水环境 1
+  water-underground-creature-spawns:  # 水下生物? 1
+  ambient-spawns:  # 环境 1
+  autosave:  # 自动保存刻
+aliases:  # commands.yml的别名

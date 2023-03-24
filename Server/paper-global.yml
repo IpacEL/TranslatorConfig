@@ -1,0 +1,133 @@
+# This is the global configuration file for Paper.
+# As you can see, there's a lot to configure. Some options may impact gameplay, so use
+# with caution, and make sure you know what each option does before configuring.
+# 
+# If you need help with the configuration or have any questions related to Paper,
+# join us in our Discord or check the docs page.
+# 
+# The world configuration options have been moved inside
+# their respective world folder. The files are named paper-world.yml
+# 
+# Docs: https://docs.papermc.io/
+# Discord: https://discord.gg/papermc
+# Website: https://papermc.io/
+
+_version:  # 配置版本
+async-chunks: # 异步区块
+  threads:  #线程数
+chunk-loading: 
+  autoconfig-send-distance:  # 根据客户端视距自动配置玩家的发送视距
+  enable-frustum-priority:  # 优先加载玩家正在看的地方的区块
+  global-max-chunk-load-rate:  # [!] 服务器全局每秒加载的最大区块数量, 覆盖 player-max-chunk-load-rate 500
+  global-max-chunk-send-rate:  # 服务器全局每秒发送的最大区块数量 -1
+  global-max-concurrent-loads:  # 服务器最大区块加载并发 覆盖 player-max-concurrent-loads -1
+  max-concurrent-sends:  # 最大并发块数量[-1无效] 2
+  min-load-radius:  # 在未节流的玩家周围尝试加载的区块半径? 因为此配置控制客户端实际能够渲染的块 -1禁用
+  player-max-chunk-load-rate:  # 每个玩家每秒最大加载多少区块 -1
+  player-max-concurrent-loads:  # 玩家最大区块加载并发 4.0
+  target-player-chunk-send-rate:  # 一秒钟内发送给单个玩家的最大块数 100.0
+chunk-system: # 区块系统
+  gen-parallelism:  # 生成并行度
+  io-threads:  # io线程
+  worker-threads:  # worker线程
+collisions:
+  enable-player-collisions:  # 是否应允许玩家相互碰撞
+  send-full-pos-for-hard-colliding-entities:  # 发送实体精准位置 [tuinity] 仅解决矿车和船碰撞
+commands:
+  fix-target-selector-tag-completion:  # 修复目标选择器标签完成??
+  suggest-player-names-when-null-tab-completions:  # 如果插件没有为指令添加补全, 则自动添加玩家列表
+  time-command-affects-all-worlds:  # 时间设置指令是否影响所有地图
+console:
+  enable-brigadier-completions:  # 在服务器控制台中启用Mojang的Brigadier命令补全
+  enable-brigadier-highlighting:  # 在服务器控制台中启用Mojang的Brigadier高亮显示
+  has-all-permissions:  # 设置控制台命令发送者是否拥有所有权限
+item-validation:
+  book:
+    author:  # 覆盖Spigot对书籍作者长度的限制
+    page:  # 覆盖Spigot对单个书页长度的限制
+    title:  # 覆盖Spigot对书名长度的限制
+  book-size:
+    page-max:  # 一本书单个页面允许的最大字节数
+    total-multiplier:  # 每个页面都有最后一页的字节倍数, 因为它对一本书的允许字节总数的贡献
+  display-name:  # 覆盖Spigot对项目显示名称长度的限制
+  lore-line:  # 覆盖Spigot对绝杀标题长度的限制
+  resolve-selectors-in-books:  # 是否解析书籍中的选择器. 启用后, 创造玩家将能以另一种方式使服务器崩溃
+logging:
+  deobfuscate-stacktraces:  # 去混淆堆栈跟踪?
+  log-player-ip-addresses:  # 当设置为 false 时, 服务器日志中的玩家 IP 地址将被替换为 <ip 地址保留>
+  use-rgb-for-named-text-colors:  # 使用 rgb 命名文本颜色, 为日志着色?
+messages:
+  kick:
+    authentication-servers-down:   
+    connection-throttle:   
+    flying-player:   
+    flying-vehicle:   
+  no-permission:   
+  use-display-name-in-quit-message:  # 设置服务器是否应在退出消息中使用玩家的显示名称
+misc:
+  chat-threads: # 聊天线程
+    chat-executor-core-size:  # 聊天执行器核心大小
+    chat-executor-max-size:  # 聊天执行器最大大小
+  fix-entity-position-desync:  # 修复了项目位置在客户端和服务器之间不同步的问题
+  lag-compensate-block-breaking:  # 服务器是否应该使用 time 来确定方块的破坏和放置 [tuinity]
+  load-permissions-yml-before-plugins:  # 在插件之前加载bukkit的permission.yml文件
+  max-joins-per-tick:  # 设置一次可加入服务器的最大玩家数量, 如果有更多玩家加入, 他们将被推迟到稍后加入
+  region-file-cache-size:  # 区域文件缓存的最大大小
+  strict-advancement-dimension-check:  # 严格的进阶尺寸检查??
+  use-alternative-luck-formula:  # 使用Aikar的替代运气公式, 允许将运气应用于未定义质量的项目, 对钓鱼公式进行重大更改
+  use-dimension-type-for-custom-spawners:  # 使用自定义生成器的维度类型?
+packet-limiter: # 数据包限制器
+  all-packets: # 所有数据包
+    action:  # 达到阈值后的行动
+    interval:  # 7秒
+    max-packet-rate:  # 发送500个数据包
+  kick-message:   
+  overrides: {}
+player-auto-save:
+  max-per-tick:  # 1刻最多保存多少玩家
+  rate:  # 设置玩家应该被保存的频率, -1 = 推荐值
+proxies:
+  bungee-cord:
+    online-mode:  # 服务器在崩溃后如何处理玩家UUID和数据?
+  proxy-protocol:  # 使用代理协议 HAProxy
+  velocity:
+    enabled: 
+    online-mode: 
+    secret: 
+scoreboards:
+  save-empty-scoreboard-teams:  # 是否自动删除空记分板
+  track-plugin-scoreboards:  # 服务器是否应该跟踪只有虚拟目标的插件记分板, 这是一个突破性的变化: 然而它提供了一个更合理的默认值, 通过使用许多记分板的插件启用此功能会导致性能下降
+spam-limiter:
+  incoming-packet-threshold:  # 传入数据包垃圾邮件阈值
+  recipe-spam-increment:  # 食谱(合成表) 按下一次计数器增加多少
+  recipe-spam-limit:  # 食谱 达到此值踢出玩家
+  tab-spam-increment:  # tab补全 
+  tab-spam-limit:  # tab补全踢出阈值
+timings:
+  enabled: 
+  hidden-config-entries:
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  history-interval:  # 计时报告中各个点之间的时间间隔[以秒为单位]
+  history-length:  # 单个报告保留的数据总量
+  really-enabled:  # 禁用, 不影响使用指令 是否启用[在一开始就加载]
+  server-name:  # 服务器名称
+  server-name-privacy:  # 在Timings中隐藏服务器名称
+  url: 
+  verbose:  # 在其报告中提供更具体的信息, 比如将卡顿精确到一个实体
+unsupported-settings:
+  allow-grindstone-overstacking:  # 允许砂轮过渡堆积??
+  allow-headless-pistons:  # 允许无头活塞
+  allow-permanent-block-break-exploits:  # 允许破坏基岩等方块
+  allow-piston-duplication:  # 允许复制TNT等
+  perform-username-validation:  # 是否验证用户名, 防止特殊字符
+watchdog:
+  early-warning-delay:  # 服务器开始挂起后看门狗线程开始打印线程转储之前的毫秒数
+  early-warning-every:  # 服务器挂起时打印线程转储之间的间隔[以毫秒为单位]

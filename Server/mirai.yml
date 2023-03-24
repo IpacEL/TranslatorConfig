@@ -1,0 +1,28 @@
+# This is the main configuration file for options provided by Mirai.
+
+map-update-interval:  # 设置为 1以获得更平滑的地图旋转 5
+verbose: 
+logger: # 删除控制台中无用的日志消息
+  suppress-init-legacy-material-errors:  # 初始化遗留材料错误
+  suppress-ignored-advancement-warnings:  # 忽略高级警告?
+  suppress-unrecognized-recipe-errors:  # 无法识别的配方错误
+fast-speed-check:  # 是否应该执行整个实体速度检查, 即使是明显的返回或跳过它们并直接设置正确的值??
+max-bees-in-hive:  # 蜂巢里的蜜蜂数量，默认3
+sign: # 有'purpur.sign.edit' 权限的玩家是否可以通过右键单击来编辑标志
+  right-click-edit: 
+  allow-colors: 
+use-risky-mathround-opt:  #使用不同的 Math.round 函数更快得到等效结果 可能影响需要精度的东西
+checks: # 是否启用香草的防作弊
+  flight:  # 飞行
+  vehicle-flight:  # 通过载具飞行
+log-player-login-location:  # 我们应该在控制台中记录玩家的坐标吗
+criterion-trigger: # 我们应该勾选昂贵的数据包检查还是跳过它们 #如果您不使用数据包，请安全禁用它们
+  enter-block: 
+  tick: 
+  location:  # 位置，如果禁用，不会给你任何与结构相关的进步?
+player-fix-stuck-in-portal:  # 修复一个让玩家卡在传送门里的bug
+entities-can-use-portals:  # 其他实体是否可以通过传送门, false 可以帮助尸体滞后的机器检测欺骗
+enable-server-metrics:  # 是否在服务器启动时运行指标服务?
+dont-send-useless-entity-packets:  # 减少无用实体数据包
+use-alternate-keepalive:  # 为网络不好的玩家启用更可靠的保活功能
+config-version: 

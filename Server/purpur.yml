@@ -1,0 +1,1594 @@
+# This is the main configuration file for Purpur.
+# As you can see, there's tons to configure. Some options may impact gameplay, so use
+# with caution, and make sure you know what each option does before configuring.
+#undefined
+# If you need help with the configuration or have any questions related to Purpur,
+# join us in our Discord guild.
+#undefined
+# Website: https://purpurmc.org
+# Docs: https://purpurmc.org/docs
+
+verbose:  # 设置服务器是否应在启动时将所有配置值转储到服务器日志
+config-version: 
+settings:
+  fix-projectile-looting-transfer:  # MC-3304 除非插件更改了抢劫修改器，否则禁止将抢劫应用于炮弹造成的死亡
+  block-fall-multipliers:
+    minecraft:cyan_bed:
+      distance: 
+    minecraft:blue_bed:
+      distance: 
+    minecraft:green_bed:
+      distance: 
+    minecraft:orange_bed:
+      distance: 
+    minecraft:black_bed:
+      distance: 
+    minecraft:yellow_bed:
+      distance: 
+    minecraft:lime_bed:
+      distance: 
+    minecraft:brown_bed:
+      distance: 
+    minecraft:light_gray_bed:
+      distance: 
+    minecraft:magenta_bed:
+      distance: 
+    minecraft:purple_bed:
+      distance: 
+    minecraft:light_blue_bed:
+      distance: 
+    minecraft:pink_bed:
+      distance: 
+    minecraft:red_bed:
+      distance: 
+    minecraft:hay_block:
+      damage: 
+    minecraft:white_bed:
+      distance: 
+    minecraft:gray_bed:
+      distance: 
+  blast-resistance-overrides: {}
+  food-properties: {}
+  username-valid-characters:  # 名称可用字符, 正则
+  tps-catchup:  # 控制tps追赶
+  lagging-threshold:  # 控制tps追赶 阈值
+  server-mod-name:   # 服务器名称
+  disable-give-dropping:  # 设置为 true 可在玩家的库存已满时防止/give将物品扔到地板上
+  allow-water-placement-in-the-end:  # 允许在最后放置水?
+  dont-send-useless-entity-packets:  # 跳过为没有真正移动的实体发送相对移动数据包, 会导致Tab和Companions等插件出问题
+  use-alternate-keepalive:  # 周期一秒, 重复30次的心跳包
+  messages: # default = 让客户端使用翻译
+    ram-command-output: 
+    rambar-command-output:  # <green>Rambar 为 <onoff> for <target>
+    tpsbar-command-output:  # <onoff> <target> 开关Tpsbar时的通知
+    death-message: # purpur的死亡消息
+      stonecutter:  
+      run-with-scissors:  
+    dont-run-with-scissors:    # 需要启用 damage-if-sprinting
+    uptime-command-output:     # 需要 bukkit.command.uptime 权限
+    sleep-skipping-night:  # 跳过夜晚时出现的操作栏消息 default
+    sleeping-players-percent:  # 当玩家睡着时出现的操作栏消息 default
+    afk-broadcast-away: 
+    afk-broadcast-back: 
+    afk-tab-list-prefix: 
+    afk-tab-list-suffix: 
+    demo-command-output:    
+    credits-command-output:     
+    ping-command-output:      
+    cannot-ride-mob:   
+    unverified-username:  # 当玩家因用户名未经验证而被踢出时显示的消息 default
+  blocks:
+    cave_vines: # 洞穴藤本植物
+      max-growth-age:  # 植物可以生长的最大生长年龄
+    kelp: # 海带
+      max-growth-age: 
+    twisting_vines: # 扭藤
+      max-growth-age: 
+    weeping_vines: # 哭泣的藤蔓
+      max-growth-age: 
+    disable-mushroom-updates:  # 禁用蘑菇更新
+    disable-note-block-updates:  # 阻止笔记块更新它的块状态服务器端?
+    disable-chorus-plant-updates:  # 阻止合唱工厂更新它的块状态服务器端?
+    anvil: # 使用铁砧修复物品应累计过于昂贵标签值
+      cumulative-cost: 
+    barrel:
+      rows:  # 木桶应该有多少排物品栏空间
+    ender_chest:
+      six-rows:  # 末影箱应该有6排物品栏空间
+      use-permissions-for-rows:  # 使用权限节点来确定行数
+    crying_obsidian:
+      valid-for-portal-frame:  # 使用哭泣黑曜石创建传送门
+    beehive:
+      max-bees-inside:  # 蜂巢中最大蜂蜜数量
+    lightning_rod:
+      range:  # 避雷针重定向闪电的范围
+    grindstone: # 设置为false以允许磨刀石从物品中移除
+      ignored-enchants: []
+      remove-attributes:  # 从物品中删除属性?附魔?
+      remove-name-and-lore:  # 删除名称和知识?
+  seed: # 其他地图种子
+    dungeon: 
+    end-spike: 
+    structure:
+      buried_treasure: 
+      mineshaft: 
+  logger: # 在日志中移除消息
+    suppress-library-loader:  # 抑制与库加载器相关的日志
+    suppress-sent-expired-chat:  # 抑制发送过期聊天
+    suppress-setblock-in-far-chunk-errors:  # 抑制在远块中检测到 setBlock 的错误?
+    suppress-unrecognized-recipe-errors:  # 禁止有关尝试加载无法识别的配方的警告
+    suppress-init-legacy-material-errors:  # 禁止关于插件初始化遗留材料api的警告
+    suppress-ignored-advancement-warnings:  # 在控制台和日志中禁止有关未知属性的警告
+  entity:
+    enderman: # 末影人
+      short-height:  # 允许末影人进入2方块高的空间
+  timings: {}
+  command: # 指令特性
+    fill: # Fill 填充方块
+      max-area:  # 最大操作范围 32768
+    hide-hidden-players-from-entity-selector:  # 在实体选择器中隐藏玩家
+    gamemode:
+      requires-specific-permission:  # 是否需要权限控制允许 gamemode 指令的每个模式
+    tpsbar: # tpsbar
+      title:       
+        
+      overlay:  # 设置Bossbar的覆盖类型, PROGRESS NOTCHED_6 NOTCHED_10 NOTCHED_12 NOTCHED_20
+      fill-mode:  # BossBar 栏应该显示什么 TPS, MSPT, PING
+      tick-interval:  # 更新周期
+      progress-color: # Boss栏的颜色
+        good:  # 绿色
+        medium:  # 蓝色
+        low:  # 红色
+      text-color: # 文字颜色
+        good: 
+        medium: 
+        low: 
+    rambar: # rambar
+      title:   
+      overlay: 
+      progress-color:
+        good:  # 绿色
+        medium:  # 绿色
+        low:  # 绿色
+      text-color:
+        good: 
+        medium: 
+        low: 
+      tick-interval:  # 更新周期
+    compass: # 指南针
+      title:      
+             
+              
+              
+             
+      overlay:  # 设置Bossbar的覆盖类型 PROGRESS NOTCHED_6 NOTCHED_10 NOTCHED_12 NOTCHED_20
+      progress-color:  # 蓝色
+      percent:  # bossbar 的填充程度从 0.0 到 1.0
+      tick-interval:  # 更新周期
+    uptime:
+      format: 
+      day: 
+      days: 
+      hour: 
+      hours: 
+      minute: 
+      minutes: 
+      second: 
+      seconds: 
+  enchantment:
+    allow-transparent-blocks-in-enchantment-box:  # 允许在魔法桌和书架之间的区域放置透明块
+    clamp-levels:  # 为附魔关卡添加切换 #966
+    allow-looting-on-shears:  # 允许在剪刀上附魔
+    allow-unsafe-enchant-command:  # 允许使用指令得到超乎寻常的附魔等级
+    allow-infinity-and-mending-together:  # 允许修补和无限附魔在同一个武器/工具上
+    allow-infinity-on-crossbow:  # 允许弩使用无限附魔 包括烟花吗?
+    anvil:
+      allow-unsafe-enchants:  # 允许不安全的附魔
+      allow-inapplicable-enchants:  # 允许工具存在不属于它的附魔
+      allow-incompatible-enchants:  # 允许附魔冲突的附魔
+      allow-higher-enchants-levels:  # 允许更高的附魔等级
+  broadcasts:
+    advancement:
+      only-broadcast-to-affected-player:  # 在聊天中只向受影响的玩家广播进度消息
+    death:
+      only-broadcast-to-affected-player:  # 在聊天中只向受影响的玩家广播死亡消息
+  network:
+    kick-for-out-of-order-chat:  # 设置为 false 以阻止服务器因玩家的聊天出现故障而踢掉他们
+    max-joins-per-second:  # 是否将 paper.yml.max-joins-per-tick 设置为每秒, 而不是每tick
+    upnp-port-forwarding:  # 尝试在服务器启动时使用 UPnP 自动端口转发
+world-settings:
+  default:
+    settings:
+      entity:
+        shared-random:  # 将此设置为 false 允许 RNG 操作。Paper 通过使用共享（和锁定）随机源来修补 RNG 操作。这带来了性能提升
+    gameplay-mechanics:
+      milk-clears-beneficial-effects:  # 设置为false，只会产生牛奶澄清的负面状态影响
+      arrow:
+        movement-resets-despawn-counter:  # 将此设置为 false 可防止箭头无限期地保持活动状态（例如当箭头卡在的块被移除时，例如活塞头向上/向下移动）
+      mob-last-hurt-by-player-time:  # 生物死亡所需的tick (可能只能增大
+      projectiles-bypass-mob-griefing:  # 设置为真让末影龙绕过暴民悲伤游戏规则
+      mobs-ignore-rails:  # 允许生物在轨道上行走
+      rain-stops-after-sleep:  # 玩家睡觉后继续下雨
+      thunder-stops-after-sleep:  # 使雷声在玩家睡觉后继续
+      impose-teleport-restrictions-on-gateways:  # 对网关添加传送限制并广播EntityTeleportHinderedEvent事件
+      entity-lifespan:  # 0=禁用 实体在消失之前将存活的刻
+      entity-left-handed-chance:  # 实体左撇子几率
+      use-better-mending:  # 经验修补优先修复损坏严重的装备
+      always-tame-in-creative:  # 100%的几率驯服暴民
+      disable-drops-on-cramming-death:  # 阻止实体在死亡时掉落战利品, 如果被填满游戏规则杀死
+      entities-pick-up-loot-bypass-mob-griefing:  # mobGriefing 规则禁用时, 怪物依旧可以捡起战利品
+      entities-can-use-portals:  # 设置为 false 以阻止玩家除外的实体使用传送门
+      fireballs-bypass-mob-griefing:  # 设置为真火球绕过暴民悲伤游戏规则
+      milk-cures-bad-omen:  # 允许玩家喝牛奶治疗凶兆状态效果 true
+      note-block-ignore-above:  # 使上方被阻挡的音符块发出声音
+      persistent-tileentity-display-names-and-lore:  # 使TE的显示名称和传说在破坏后仍然存在
+      persistent-droppable-entity-display-names:  # 使实体的显示名称和知识在破坏后仍然存在
+      trident-loyalty-void-return-height:  # 具有忠诚的三叉戟将返回其投掷者的虚空高度 0.0
+      void-damage-height:  # 虚空损伤开始的高度
+      void-damage-dealt:  # 虚空造成的伤害量
+      raid-cooldown-seconds:  # 您应该等待多长时间才能发起另一次突袭
+      animal-breeding-cooldown-seconds:  # 为每种动物类型的繁殖增加冷却时间
+      entity-blindness-multiplier:  # 当受到失明药水效果影响时, 暴民有多失明
+      shovel-turns-block-to-grass-path: # 用铲子右键单击时可以变成草径的方块列表
+         
+      tick-fluids:  # 设置为 false 以阻止流体滴答作响, 使用此选项的简单插件的屏幕截图
+      player:
+        teleport-on-nether-ceiling-damage:  # 传送下界天花板伤害
+        burp-delay:  # 延迟声音的滴答声数量；必须启用 burp-when-full
+        exp-pickup-delay-ticks:  # 玩家在掉落后获取经验的延迟时间?
+        allow-void-trading:  # 允许虚空交易所
+        burp-when-full:  # 在玩家通过进食完全填满饥饿条后播放打嗝声
+        ridable-in-water:  # 使这个生物可以在水中骑乘 false
+        shift-right-click-repairs-mending-points:  # 用于修复玩家物品栏中经验修补物品的经验值
+        fix-stuck-in-portal:  # 允许玩家在传送门里反复横跳
+        teleport-if-outside-border:  # 如果您以某种方式离开世界边界, 将传送到重生点 false
+        totem-of-undying-works-in-inventory:  # 允许图腾在背包中被使用 false
+        one-punch-in-creative:  # 创造模式空手无限暴击
+        sleep-ignore-nearby-mobs:  # 允许附近有怪物时睡觉
+        can-skip-night:  # 设置为 false 以禁用玩家通过睡觉来跳过夜晚的能力
+        critical-damage-multiplier:  # 暴击伤害增加到基础伤害的百分比 1.5
+        spawn-invulnerable-ticks:  # 玩家第一次出现时无敌的时间
+        invulnerable-while-accepting-resource-pack:  # 在下载资源包时将玩家设置为无敌 false
+        idle-timeout:
+          kick-if-idle:  # 移除空闲的玩家 true
+          tick-nearby-entities:  # 当附近的玩家处于AFK状态时, 实体是否应该正常滴答
+          count-as-sleeping:  # 使AFK玩家算作睡觉 false
+          update-tab-list:  # 使AFK玩家的名字排在列表后面
+          mobs-target:  # 暴民是否应该瞄准附近的 AFK 玩家
+        exp-dropped-on-death:
+          equation:   
+          maximum:  # 死亡时掉落的最大经验值
+        netherite-fire-resistance: # 下届合金耐火
+          duration:  # 0=禁用 设置耐火性持续多长时间
+          amplifier:  # 为防火效果设置放大器
+          ambient:  # 减少着火对屏幕的干扰 false
+          show-particles:  # 对于防火药水效果设置为 true 以显示粒子
+          show-icon:  # 设置为 false 使防火效果不显示它的图标
+        armor-click-equip:
+          allow-hot-swapping:  # 允许玩家通过右键单击将他们盔甲槽中的盔甲与手中的盔甲交换
+          creative-makes-copy:  # 设置为 false 右键单击将其放入玩家的盔甲槽时停止复制手中的盔甲
+        curse-of-binding:
+          remove-with-weakness:  # 允许玩家在施加虚弱效果时移除绑定盔甲的诅咒
+      armorstand: # 盔甲架
+        set-name-visible-when-placing-with-custom-name:  # 使用自定义名称放置时使名称可见
+        fix-nametags:  # 在盔甲架上使用名称标签时使名称可见
+        step-height:  # 设置盔甲架的默认台阶高度
+        can-movement-tick:  # 设置为 false 以禁止盔甲架移动
+        can-move-in-water:  # 设置为 false 以禁止盔甲架在水中移动
+        can-move-in-water-over-fence:  # 设置为 false 以禁止盔甲架在水中越过栅栏移动
+        place-with-arms-visible:  # 放置时使手臂可见
+      projectile-offset: # 偏移
+        bow:  # 弓的偏移
+        crossbow: 
+        egg: 
+        ender-pearl: 
+        throwable-potion: 
+        trident: 
+        snowball: 
+      mob-spawning: # 设置为 true 以在此选项所属的世界中生成
+        ignore-creative-players: 
+        village-cats: 
+        raid-patrols: 
+        phantoms: 
+        wandering-traders: 
+        village-sieges: 
+      daylight-cycle-ticks: # 日光周期刻 时间
+        daytime:  # 设置日光周期被打勾的时间 12000
+        nighttime:  # 设置夜间周期被打勾的时间 12000
+      infinity-bow:
+        works-without-arrows:  # 设置为 true 使无限弓在没有箭头的情况下工作 false
+        normal-arrows:  # 设置为 true 使无限附魔在此箭头类型上起作用
+        spectral-arrows:  # 设置为 true 使无限附魔在此箭头类型上起作用
+        tipped-arrows:  # 设置为 true 使无限附魔在此箭头类型上起作用
+      boat:
+        eject-players-on-land:  # 船在陆地上时, 应该弹出玩家
+        do-fall-damage:  # 设置为 false 使船只不会对玩家造成坠落伤害 true
+      silk-touch: # 使您可以使用具有精准采集的工具挖掘刷怪箱
+        enabled: 
+        minimal-level:  # 拾取地雷刷怪箱所需的精准采集附魔的最低等级
+        spawner-name: 
+        spawner-lore: # 刷怪笼的传说?
+             
+        tools:
+         
+         
+         
+         
+      mob-effects: # 生物效应
+        health-regen-amount:  # 此效果影响实体的数量
+        minimal-health-poison-amount: 
+        poison-degeneration-amount: 
+        wither-degeneration-amount: 
+        hunger-exhaustion-amount:  # 饥饿消耗
+        saturation-regen-amount: 
+      minecart:
+        max-speed:  # 控制时矿车的最大速度
+        place-anywhere:  # 矿车是否可以放置在任何地方, 而不仅仅是在轨道上
+        controllable:
+          enabled:  # 不在轨道上时是否可以控制矿车
+          step-height: 
+          hop-boost: 
+          fall-damage:  # 设置为 true 以在矿车中对玩家造成坠落伤害
+          base-speed: 
+          block-speed:
+            grass_block: 
+            stone: 
+        powered-rail: # 矿车因撞击充能铁轨而获得的速度提升[不影响熔炉矿车]
+          boost-modifier: 
+      projectile-damage:
+        snowball: 
+      item:
+        immune:
+          cactus: []
+          explosion: []
+          fire: []
+          lightning: []
+        shears:
+          damage-if-sprinting:  # 冲刺时拿着剪刀会随机伤害玩家
+          sprinting-damage:  # 冲刺时拿着剪刀会随机伤害玩家
+        ender-pearl:
+          damage:  # 使用末影珍珠传送后受到的伤害量 5.0
+          cooldown:  # 使用末影珍珠后的冷却时间 刻
+          creative-cooldown:  # 创造时使用末影珍珠后的冷却时间 刻
+          endermite-spawn-chance:  # 使用末影珍珠传送后会产生末影螨的百分比 0.05000000074505806
+        glow_berries:
+          eat-glow-duration: 
+        shulker_box:
+          drop-contents-when-destroyed:  # 潜影盒被摧毁时是否应该丢弃里面的东西
+        compass:
+          holding-shows-bossbar:  # 如果 /compass 命令中的 bossbar 在拿着指南针时应该显示
+        snowball:
+          extinguish:
+            fire:  # 雪球在投掷时是否应该灭火
+            candles:  # 雪球在投掷时是否应该熄灭蜡烛
+            campfires:  # 雪球在投掷时是否应该扑灭篝火
+      elytra:
+        kinetic-damage:  # 玩家飞入墙壁时是否应该受到伤害
+        damage-per-second:  # 鞘翅在飞行中每秒掉多少耐久
+        damage-multiplied-by-speed:  # 0=禁用 如果飞行速度超过设定速度, 则伤害乘以速度
+        ignore-unbreaking:  # 鞘翅应该无视不间断的结界?
+        damage-per-boost:
+          firework:  # 烟花助推激活时对鞘翅掉多少耐久
+          trident:  # 当三叉戟激流激活时对鞘翅掉多少耐久
+      drowning:
+        air-ticks:  # 在开始溺水之前, 您可以在水下呼吸多长时间
+        ticks-per-damage:  # 溺水伤害之间的刻度数
+        damage-from-drowning:  # 溺水时造成的伤害量
+      halloween:
+        force:  # 设置为 true 以强制世界进入万圣节
+        head-chance:  # 生成僵尸或骷髅头上有南瓜灯/南瓜的几率 0.0 - 1.0
+    blocks:
+      sculk_shrieker:
+        can-summon-default: 
+      enchantment-table:
+        lapis-persists: 
+      coral:
+        die-outside-water: 
+      no-random-tick: []
+      turtle_egg:
+        feather-fall-distance-affects-trampling:  # 禁用羽毛掉落时践踏海龟蛋的选项 #977
+        random-tick-crack-chance:  # 被踩碎的机会
+        bypass-mob-griefing:  # 让海龟蛋绕过暴民悲伤游戏规则
+        break-from-exp-orbs:  # 允许经验球损坏/破坏海龟蛋
+        break-from-items:  # 允许掉落的物品损坏/破坏海龟蛋
+        break-from-minecarts:  # 允许矿车损坏/破坏海龟蛋
+      stonecutter:
+        damage:  # 如果设置了一个值, 暴徒也会避免从切石机上走过
+      dragon_egg:
+        teleport:  # 控制龙蛋被击中时是否瞬移
+      twisting_vines:
+        growth-modifier:  # 改变藤蔓的生长速度 #改变藤蔓的生长速度
+        max-growth-age:  # 植物可以生长的最大生长年龄 #植物可以生长的最大生长年龄 #植物可以生长的最大生长年龄
+      shulker_box:
+        allow-oversized-stacks:  # 控制是否允许在潜影盒中堆放过多的物品
+      composter:
+        sneak-to-bulk-process:  # 设置为 true 以允许通过在手上的物品上潜行右键单击来批量处理食物/植物物品
+      dispenser:
+        apply-cursed-to-armor-slots:  # 如果发射器被绑定诅咒附魔, 发射器是否应该将盔甲应用到盔甲插槽
+        place-anvils:  # 允许发射器放置铁砧
+      end_portal:
+        safe-teleporting:  # 在处理末地传送门传送时切换对不安全代码的保护. 对于某些漏洞利用, 禁用此功能可能是必要的
+      weeping_vines: # 垂泪藤
+        growth-modifier:  # 改变藤蔓的生长速度
+        max-growth-age:  # 最大生长年龄
+      respawn_anchor:
+        explode:  # 重生锚是否爆炸, 将此设置为 false 只会使重生锚点不存在
+        explosion-power:  # 爆炸范围 #爆炸范围
+        explosion-fire:  # 爆炸是否会引起火灾 #爆炸是否会引起火灾
+        explosion-effect:  # 爆炸效果的类型
+      magma-block:
+        damage-when-sneaking:  # 设置为 true 以在潜行时启用伤害
+        damage-with-frost-walker:  # 设置为 true 以在穿着带有霜行者附魔的靴子行走时造成伤害
+      slab:
+        break-individual-slabs-when-sneaking:  # 设置为 true 以允许在潜行时破坏双台阶块中的单个台阶
+      spawner:
+        fix-mc-238526: 
+        deactivate-by-redstone:  # 允许刷怪笼被红石停用
+      powered-rail:
+        activation-range:  # 单个红石源激活的充能铁轨数量
+      bed: # 床是否爆炸, 将此设置为 false 只会使床消失
+        explode: 
+        explode-on-villager-sleep:  # 当村民睡在一张床上时床是否会爆炸
+        explosion-power: 
+        explosion-fire: 
+        explosion-effect: 
+      sponge:
+        absorbs-lava:  # 让海绵吸收岩浆
+        absorption:
+          area:  # 海绵吸水的方块面积
+          radius:  # 海绵吸水的方块半径
+      door:
+        requires-redstone: []
+      lava:
+        infinite-source:  # 和水一样的无限岩浆
+        infinite-required-sources:  # 拥有无限熔岩所需的来源数量
+        speed:
+          nether:  # 物理/流动之间的滴答延迟
+          not-nether:  # 物理/流动之间的滴答延迟 [越低越快]
+      sand:
+        fix-duping:  # 设置为 false 以重新启用沙子欺骗的能力 true
+      sign:
+        allow-colors:  # 允许玩家在标志上使用颜色代码
+        right-click-edit:  # 能够通过在手上的另一个标志上右键单击来编辑标志
+      chest:
+        open-with-solid-block-on-top:  # 即使顶部有实心方块也可以打开箱子
+      kelp:
+        max-growth-age:  # 植物可以生长的最大生长年龄
+      anvil:
+        use-mini-message:  # 使用小消息??
+        iron-ingots-used-for-repair:  # 修复一个铁砧所需的铁锭数量
+        obsidian-used-for-damage:  # 损坏铁砧所需的黑曜石数量
+        allow-colors:  # 允许玩家在铁砧中使用颜色代码 false
+      beacon: # 信标
+        effect-range: # 效果范围
+          level-1:  # 20
+          level-2:  # 30
+          level-3:  # 40
+          level-4:  # 50
+      blue_ice:
+        allow-snow-formation:  # 设置为 false 以禁止在蓝冰上形成雪
+        allow-mob-spawns:  # 设置为 false 以禁止生物在浮冰上生成 #设置为 false 以禁止生物在蓝冰上生成
+      packed_ice:
+        allow-mob-spawns:  # 设置为 false 以禁止生物在浮冰上生成
+      farmland:
+        trample-height:  # 实体踩踏耕地所需的最小下落高度
+        bypass-mob-griefing:  # 设置为 true 使耕地绕过暴民悲伤游戏规则
+        gets-moist-from-below:  # 允许耕地吸收下方的水
+        use-alpha-farmland:  # 如果栅栏或鹅卵石墙直接放在耕地下方, 则可以防止耕地被踩踏
+        disable-trampling:  # 设置为 true 以完全禁用践踏 false
+        only-players-trample:  # 只有玩家可以践踏耕地
+        feather-fall-distance-affects-trampling:  # 如果实体掉落的距离等于它们的羽毛掉落等级, 再加上首先需要践踏的额外方块, 则实体可以停止践踏, 则设置为 true . Feather Falling 1 需要你摔倒超过 3 个方块才能踩踏. FF 2 需要 4+，等等
+      furnace:
+        use-lava-from-underneath:  # 允许熔炉由放置在其下方的熔岩无限供电
+      end-crystal: # 设置为 false 以阻止晶体爆炸
+        baseless:
+          explode: 
+          explosion-power:  # 爆炸范围 #爆炸范围
+          explosion-fire:  # 爆炸是否会引起火灾 #爆炸是否会引起火灾
+          explosion-effect: 
+        base:
+          explode: 
+          explosion-power: 
+          explosion-fire: 
+          explosion-effect: 
+      piston:
+        block-push-limit:  # 活塞可以推动的方块数量
+      conduit: # 导管 潮涌核心
+        effect-distance:  # 框架中每七个方块的导管有效半径
+        valid-ring-blocks: # 可用于建造管道的方块
+           
+           
+           
+           
+        mob-damage:
+          distance:  # 伤害敌对生物的距离
+          damage-amount:  # 如果敌对生物与水/雨接触, 则每 2 秒对它们施加的伤害量 4.0
+      cauldron:
+        fill-chances: # 炼药锅
+          dripstone-water:  # 滴水石锥 装满水的速度
+          dripstone-lava:  # 滴水石锥 装满岩浆的速度 (可能
+          rain:  # 炼药锅充满雨水的速度 0.05000000074505806
+          powder-snow:  # 炼药锅充满雪粉的速度 0.10000000149011612
+      observer: # 禁用观察者时钟
+        disable-clock: 
+      azalea: # 杜鹃花自然长成树木的机会
+        growth-chance: 
+      cave_vines: # 改变藤蔓的生长速度 最大长度
+        growth-modifier: 
+        max-growth-age: 
+      cactus: # 仙人掌是否会从它旁边的方块上折断 [仙人掌农场] true
+        breaks-from-solid-neighbors: 
+      powder_snow: # 设置为真粉雪绕过暴民悲痛游戏规则
+        bypass-mob-griefing: 
+      water: # 水
+        infinite-source:  # 设置水是否应该具有无限属性
+        infinite-required-sources:  # 拥有无限水所需的水源数量
+      campfire: # 设置为 false 以阻止篝火在放置时被点燃
+        lit-when-placed: 
+      budding_amethyst: # 萌芽紫水晶
+        silk-touch:  # 丝滑?
+      flowering_azalea: # 开花的杜鹃花自然长成树木的机会
+        growth-chance: 
+      big_dripleaf: # 大型垂滴叶
+        tilt-delay: # 3种状态
+          FULL: 
+          PARTIAL: 
+          UNSTABLE: 
+    mobs:
+      allay:
+        respect-nbt: []
+        ridable: 
+        ridable-in-water: 
+        controllable: 
+      frog:
+        ridable: 
+        ridable-in-water: 
+        controllable: 
+        ridable-jump-height: 
+        breeding-delay-ticks: 
+      tadpole:
+        ridable: 
+        ridable-in-water: 
+        controllable: 
+      warden:
+        ridable: 
+        ridable-in-water: 
+        controllable: 
+      elder_guardian: # 守卫者
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water:  # 设置为真让这个生物开始受到水的伤害
+        ridable:  # 使这个暴徒 WASD 可控 #使这个暴徒 WASD 可控?
+        attributes:
+          max_health:  # 最大生命值
+      ender_dragon: # 末影龙
+        controllable: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y:  # 该生物被骑乘时可以飞到的最大高度
+        always-drop-full-exp:  # 当为真时, 所有有效的末影龙死亡都会像第一次龙死亡一样掉落全部经验球
+        bypass-mob-griefing: 
+        can-ride-vehicles:  # 为末影龙设置为真以获得骑乘车辆的能力
+        attributes:
+          max_health:  # 最大生命值 200.0
+      cave_spider: # 蜘蛛 #洞穴蜘蛛
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      endermite: # 末影螨
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      trader_llama: # 骆驼 #商人羊驼
+        controllable: 
+        always-drop-exp: 
+        breeding-delay-ticks: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water:  # 可骑乘 false
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      illusioner: # 幻术师
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        movement-speed: 
+        follow-range: 
+        attributes:
+          max_health: 
+      mooshroom: # 哞菇
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      magma_cube: # 岩浆立方体
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          attack_damage: 
+          max_health:   
+      iron_golem: # 铁巨人
+        controllable: 
+        healing-calms-anger: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        can-swim: 
+        poppy-calms-anger: 
+        attributes:
+          max_health: 
+      pufferfish: # 河豚鱼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        attributes:
+          max_health: 
+      piglin_brute: # 猪灵兽
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      silverfish: # 蠹虫
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        attributes:
+          max_health: 
+      skeleton_horse: # 马 #骷髅马
+        always-drop-exp: 
+        takes-damage-from-water: 
+        can-swim: 
+        ridable-in-water: 
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      polar_bear: # 北极熊
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breedable-item: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      snow_golem: # 雪傀儡
+        controllable: 
+        always-drop-exp: 
+        ridable: 
+        ridable-in-water: 
+        leave-trail-when-ridden: 
+        bypass-mob-griefing:  # 会导致无法产生雪
+        drop-pumpkin-when-sheared: 
+        pumpkin-can-be-added-back: 
+        min-shoot-interval-ticks: 
+        max-shoot-interval-ticks: 
+        snow-ball-modifier: 
+        attack-distance: 
+        takes-damage-from-water: 
+        attributes:
+          max_health: 
+      wandering_trader: # 流浪商人
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        can-be-leashed: 
+        follow-emerald-blocks: 
+        allow-trading: 
+        attributes:
+          max_health: 
+      wither_skeleton: # 骨骼 #枯萎骨架
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        takes-wither-damage: 
+        attributes:
+          max_health: 
+      tropical_fish: # 热带鱼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        attributes:
+          max_health: 
+      vindicator: # 辩护人
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        johnny:
+          spawn-chance: 
+        attributes:
+          max_health: 
+      zombie_horse: # 僵尸马
+        always-drop-exp: 
+        takes-damage-from-water: 
+        can-swim: 
+        ridable-in-water: 
+        spawn-chance: 
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      zombified_piglin: # 僵尸猪灵
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        count-as-player-kill-when-angry: 
+        jockey:
+          only-babies: 
+          chance: 
+          try-existing-chickens: 
+        attributes:
+          max_health: 
+          spawn_reinforcements: 
+      zombie_villager: # 僵尸村民
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        jockey:
+          only-babies: 
+          chance: 
+          try-existing-chickens: 
+        attributes:
+          max_health: 
+          spawn_reinforcements: 
+        curing_time:
+          min: 
+          max: 
+        cure:
+          enabled: 
+      wither: # 枯萎
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        play-spawn-sound: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        bypass-mob-griefing: 
+        health-regen-amount: 
+        health-regen-delay: 
+        can-ride-vehicles: 
+        explosion-radius: 
+        attributes:
+          max_health: 
+      pillager: # 乱兵
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        attributes:
+          max_health: 
+      phantom: # 幻影
+        controllable: 
+        always-drop-exp: 
+        size:
+          min: 
+          max: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        attacked-by-crystal-range: 
+        attacked-by-crystal-damage: 
+        orbit-crystal-radius: 
+        burn-in-light: 
+        burn-in-daylight: 
+        ignore-players-with-torch:  # 忽略手持火把的玩家 [!]
+        allow-griefing:  # 幻翼的火焰是否可以燃烧物品
+        flames-on-swoop: 
+        flames:
+          damage: 
+          fire-time: 
+        spawn:
+          min-sky-darkness: 
+          only-above-sea-level: 
+          only-with-visible-sky: 
+          local-difficulty-chance: 
+          min-time-since-slept: 
+          delay:
+            min: 
+            max: 
+          overhead:
+            min: 
+            max: 
+            radius: 
+          per-attempt:
+            min: 
+            max: 
+        attributes:
+          attack_damage:   
+          max_health: 
+      bee: # 蜜蜂
+        controllable: 
+        always-drop-exp: 
+        dies-after-sting: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        breeding-delay-ticks: 
+        can-work-at-night: 
+        can-work-in-rain: 
+        attributes:
+          max_health: 
+      blaze: # 火焰
+        controllable: 
+        always-drop-exp: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        takes-damage-from-water: 
+        attributes:
+          max_health: 
+      cat: # 猫
+        controllable: 
+        always-drop-exp: 
+        default-collar-color: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        spawn-delay: 
+        breeding-delay-ticks: 
+        scan-range-for-other-cats:
+          swamp-hut: 
+          village: 
+        attributes:
+          max_health: 
+      bat: # 蝙蝠
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        attributes:
+          max_health: 
+      ghast: # 恶魂
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        allow-griefing: 
+        attributes:
+          max_health: 
+      cod: # 鳕鱼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        attributes:
+          max_health: 
+      enderman: # 末影人
+        controllable: 
+        always-drop-exp: 
+        aggressive-towards-endermites: 
+        aggressive-towards-endermites-only-spawned-by-player-thrown-ender-pearls: 
+        ignore-projectiles: 
+        ridable: 
+        ridable-in-water: 
+        allow-griefing:  # 允许破坏方块
+        bypass-mob-griefing: 
+        can-despawn-with-held-block: 
+        takes-damage-from-water: 
+        ignore-players-wearing-dragon-head: 
+        disable-player-stare-aggression: 
+        attributes:
+          max_health: 
+      witch: # 巫婆
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      strider: # 炽足兽
+        controllable: 
+        always-drop-exp: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        give-saddle-back: 
+        takes-damage-from-water: 
+        attributes:
+          max_health: 
+      giant: # 巨大的
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        step-height: 
+        jump-height: 
+        movement-speed: 
+        attack-damage: 
+        have-ai: 
+        have-hostile-ai: 
+        attributes:
+          max_health: 
+      cow: # 奶牛
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        feed-mushrooms-for-mooshroom: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+        naturally-aggressive-to-players:
+          damage: 
+          chance: 
+      dolphin: # 海豚
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        naturally-aggressive-to-players-chance: 
+        ridable: 
+        disable-treasure-searching:  # 是否禁用海豚寻宝
+        spit:
+          cooldown: 
+          speed: 
+          damage: 
+        attributes:
+          max_health: 
+      donkey: # 驴
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      chicken: # 鸡
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        retaliate: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      husk: # 尸壳
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        jockey:
+          only-babies: 
+          chance: 
+          try-existing-chickens: 
+        attributes:
+          max_health: 
+          spawn_reinforcements: 
+      ocelot: # 豹猫
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      horse: # 马
+        stand-when-hurt:  # 受伤是是否站立
+        always-drop-exp: 
+        takes-damage-from-water: 
+        stand-with-rider: 
+        tempted-by-gold: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      parrot: # 鹦鹉
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        can-breed: 
+        attributes:
+          max_health: 
+      vex: # 烦恼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        ridable-max-y: 
+        attributes:
+          max_health: 
+      wolf: # 狼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        default-collar-color: 
+        milk-cures-rabid-wolves: 
+        spawn-rabid-chance: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      rabbit: # 兔子
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        spawn-toast-chance: 
+        spawn-killer-rabbit-chance: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      slime: # 粘液
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          attack_damage: 
+          max_health:   
+      fox: # 狐狸
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        tulips-change-type: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      shulker: # 潜影贝
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        change-color-with-dye: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+        spawn-from-bullet:
+          base-chance: 
+          require-open-lid: 
+          nearby-range: 
+          nearby-equation:     
+          random-color: 
+      stray: # 流浪
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      panda: # 熊猫
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      mule: # 骡子
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      turtle: # 龟
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      guardian: # 守卫者
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        attributes:
+          max_health: 
+      sheep: # 羊
+        controllable: 
+        always-drop-exp: 
+        jeb-shear-random-color: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        bypass-mob-griefing: 
+        attributes:
+          max_health: 
+      zoglin: # 佐格林
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      evoker: # 唤起者
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        attributes:
+          max_health: 
+      hoglin: # 霍格林
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      skeleton:
+        feed-wither-roses: 
+        bow-accuracy:     
+        controllable: 
+        always-drop-exp: 
+        head-visibility-percent: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      llama:
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        tempted-by-hay: 
+        ridable: 
+        ridable-in-water: 
+        join-caravans: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health:
+            min: 
+            max: 
+          jump_strength:
+            min: 
+            max: 
+          movement_speed:
+            min: 
+            max: 
+      squid: # 乌贼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        immune-to-EAR: 
+        water-offset-check: 
+        can-fly: 
+        attributes:
+          max_health: 
+      spider:
+        controllable: 
+        always-drop-exp: 
+        can-climb-world-border: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        attributes:
+          max_health: 
+      creeper: # 爬行者
+        encircle-target:  # 设置为true，当玩家点燃时，该暴徒会围绕玩家旋转
+        controllable: 
+        always-drop-exp: 
+        head-visibility-percent: 
+        bypass-mob-griefing: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        explode-when-killed: 
+        health-impacts-explosion: 
+        allow-griefing:  # 允许破坏方块
+        naturally-charged-chance: 
+        attributes:
+          max_health: 
+      zombie: # 僵尸
+        controllable: 
+        always-drop-exp: 
+        head-visibility-percent: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        aggressive-towards-villager-when-lagging:  # 如果TPS过低就不攻击村民
+        break-door-minimum-difficulty: 
+        jockey:
+          only-babies: 
+          chance: 
+          try-existing-chickens: 
+        attributes:
+          max_health: 
+          spawn_reinforcements: 
+      ravager: # 掠夺者
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        bypass-mob-griefing: 
+        griefable-blocks:
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        attributes:
+          max_health: 
+      drowned: # 淹死
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        can-break-doors: 
+        ridable: 
+        ridable-in-water: 
+        jockey:
+          only-babies: 
+          chance: 
+          try-existing-chickens: 
+        attributes:
+          max_health: 
+          spawn_reinforcements: 
+      piglin:
+        controllable: 
+        always-drop-exp: 
+        bypass-mob-griefing: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        portal-spawn-modifier: 
+        attributes:
+          max_health: 
+      pig: # 猪
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        give-saddle-back: 
+        breeding-delay-ticks: 
+        attributes:
+          max_health: 
+      salmon: # 三文鱼
+        controllable: 
+        always-drop-exp: 
+        takes-damage-from-water: 
+        ridable: 
+        attributes:
+          max_health: 
+      villager:
+        controllable: 
+        always-drop-exp: 
+        minimum-demand: 
+        display-trade-item: 
+        takes-damage-from-water: 
+        ridable: 
+        ridable-in-water: 
+        brain-ticks:  # 提高可减少村民的卡顿 1, 高于3时出现不同步
+        use-brain-ticks-only-when-lagging: 
+        can-be-leashed: 
+        bypass-mob-griefing: 
+        follow-emerald-blocks: 
+        can-breed: 
+        breeding-delay-ticks: 
+        clerics-farm-warts: 
+        cleric-wart-farmers-throw-warts-at-villagers: 
+        allow-trading: 
+        spawn-iron-golem:
+          radius: 
+          limit: 
+        lobotomize:
+          enabled: 
+          check-interval: 
+        attributes:
+          max_health: 
+      glow_squid:
+        rainglow-mode: 
+        controllable: 
+        always-drop-exp: 
+        ridable: 
+        can-fly: 
+        takes-damage-from-water: 
+        attributes:
+          max_health: 
+      goat:
+        controllable: 
+        always-drop-exp: 
+        ridable: 
+        ridable-in-water: 
+        breeding-delay-ticks: 
+        takes-damage-from-water: 
+        attributes:
+          max_health: 
+      axolotl:
+        controllable: 
+        always-drop-exp: 
+        ridable: 
+        breeding-delay-ticks: 
+        takes-damage-from-water: 
+        attributes:
+          max_health: 
+    ridable-settings:
+      babies-are-ridable:  # 设置为 false 以阻止婴儿骑乘
+      untamed-tamables-are-ridable:  # 设置为 false 以阻止未驯服的可驯服被骑乘
+      use-night-vision:  # 设置为 true 以在骑乘时为骑手提供夜视
+    hunger: # 饥饿会造成的伤害量
+      starvation-damage: 
+    tools:
+      axe:
+        strippables:
+          minecraft:warped_hyphae:
+            drops: {}
+            into: 
+          minecraft:crimson_stem:
+            drops: {}
+            into: 
+          minecraft:warped_stem:
+            drops: {}
+            into: 
+          minecraft:spruce_log:
+            drops: {}
+            into: 
+          minecraft:oak_log:
+            drops: {}
+            into: 
+          minecraft:jungle_log:
+            drops: {}
+            into: 
+          minecraft:dark_oak_wood:
+            drops: {}
+            into: 
+          minecraft:acacia_log:
+            drops: {}
+            into: 
+          minecraft:birch_wood:
+            drops: {}
+            into: 
+          minecraft:birch_log:
+            drops: {}
+            into: 
+          minecraft:jungle_wood:
+            drops: {}
+            into: 
+          minecraft:acacia_wood:
+            drops: {}
+            into: 
+          minecraft:dark_oak_log:
+            drops: {}
+            into: 
+          minecraft:oak_wood:
+            drops: {}
+            into: 
+          minecraft:spruce_wood:
+            drops: {}
+            into: 
+          minecraft:crimson_hyphae:
+            drops: {}
+            into: 
+          minecraft:mangrove_log:
+            into: 
+            drops: {}
+          minecraft:mangrove_wood:
+            into: 
+            drops: {}
+        waxables:
+          minecraft:waxed_oxidized_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:waxed_weathered_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:waxed_exposed_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_cut_copper_stairs:
+            drops: {}
+            into: 
+          minecraft:waxed_cut_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_exposed_cut_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_oxidized_cut_copper_stairs:
+            drops: {}
+            into: 
+          minecraft:waxed_weathered_cut_copper_stairs:
+            drops: {}
+            into: 
+          minecraft:waxed_exposed_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:waxed_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:waxed_copper_block:
+            drops: {}
+            into: 
+          minecraft:waxed_oxidized_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_weathered_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_oxidized_cut_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_weathered_cut_copper:
+            drops: {}
+            into: 
+          minecraft:waxed_exposed_cut_copper_stairs:
+            drops: {}
+            into: 
+        weatherables:
+          minecraft:exposed_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:weathered_cut_copper:
+            drops: {}
+            into: 
+          minecraft:oxidized_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:weathered_cut_copper_slab:
+            drops: {}
+            into: 
+          minecraft:weathered_cut_copper_stairs:
+            drops: {}
+            into: 
+          minecraft:exposed_copper:
+            drops: {}
+            into: 
+          minecraft:oxidized_cut_copper:
+            drops: {}
+            into: 
+          minecraft:exposed_cut_copper:
+            drops: {}
+            into: 
+          minecraft:weathered_copper:
+            drops: {}
+            into: 
+          minecraft:exposed_cut_copper_stairs:
+            drops: {}
+            into: 
+          minecraft:oxidized_copper:
+            drops: {}
+            into: 
+          minecraft:oxidized_cut_copper_stairs:
+            drops: {}
+            into: 
+      hoe:
+        replant-crops: 
+        replant-nether-warts: 
+        tillables:
+          minecraft:rooted_dirt:
+            condition: 
+            drops:
+              minecraft:hanging_roots: 
+            into: 
+          minecraft:dirt_path:
+            condition: 
+            drops: {}
+            into: 
+          minecraft:coarse_dirt:
+            condition: 
+            drops: {}
+            into: 
+          minecraft:grass_block:
+            condition: 
+            drops: {}
+            into: 
+          minecraft:dirt:
+            condition: 
+            drops: {}
+            into: 
+timings:
+  url: 
